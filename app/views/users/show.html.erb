@@ -1,0 +1,13 @@
+<div id="page-content">
+  <div class = "container">
+  <h1 class="text-center mt-4"><%= @user.username %> Profile</h1>
+    <div class="text-center mt-4">
+      <% if logged_in? && @user == current_user %>
+      <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-info" %>
+      <% end %>
+    </div>
+    <h3 class="text-center mt-4">My Chatrooms</h3>
+    <%= render 'chatrooms/chatroom' %>
+    
+  </div>
+</div>
