@@ -7,6 +7,8 @@ class MessagesController < ApplicationController
         @message.chatroom_id = params[:chatroom_id]
         if @message.save
             redirect_to chatroom_path(params[:chatroom_id])
+        else
+            redirect_to root_path
         end
     end
     

@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     post 'login', to: 'sessions#create'
     resources :chatrooms , except: [:index]
     delete 'logout', to: 'sessions#destroy'
-    post 'message', to: 'messages#create'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+    post 'message', to:'messages#create'
+      # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

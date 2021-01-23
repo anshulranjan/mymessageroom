@@ -1,27 +1,20 @@
-<ul class="list-group">
-  <% @chatroom.each do |chatroom| %>
-      <div class="card text-center mt-4">
-    <div class="card-header">
-      Created by
-      <%= chatroom.user.username %>
-    </div>
+
+    <% @chatroom.each do |chatroom| %>
+    <div class="card mt-3">
     <div class="card-body">
-      <h5 class="card-title"><%= chatroom.title %></h5>
-      <br>
-      <%= link_to "Enter Chatroom", chatroom_path(chatroom), class: "btn btn-outline-success" %>
-      <% if logged_in? && (chatroom.user == current_user || current_user.admin?) %>
-        <%= link_to "Edit Chatroom", edit_chatroom_path(chatroom), class: "btn btn-outline-info" %>
-        <%= link_to "Delete Chatroom", chatroom_path(chatroom), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
-      <% end %>
+      <div class="d-flex justify-content-between">
+        <div class="justify-content-start">
+          <h3><%= link_to chatroom.title, chatroom_path(chatroom) %> </h3>
+        </div>
+        <div class = "justify-content-end" >
+          <span class="badge badge-primary badge-pill">14 Online</span>
+        </div>
+      </div>
+      <small>Created <%= time_ago_in_words(chatroom.created_at) %> ago</small>
     </div>
-    <div class="card-footer text-muted">
-      <small>Created <%= time_ago_in_words(chatroom.created_at) %> ago
     </div>
     <br>
-    <br>
-  </div>
   <% end %>
-  </ul>
 
 
 
