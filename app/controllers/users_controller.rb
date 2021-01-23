@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @chatroom = @user.chatrooms.order("created_at DESC")
+    @chatroom = @user.chatrooms.order("created_at DESC").paginate(page: params[:page], per_page: 15)
   end
   
   def index

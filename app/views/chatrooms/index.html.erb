@@ -11,8 +11,15 @@
 		</div>
 	
 
-
+	<br>
   <h1 class="text-center mt-4">All ChatRooms</h1>
+  <br>
+  <div class="apple_pagination">
+    <%= will_paginate @chatroom, :container => false %>
+  </div>
   <%= render 'chatroom' %>
+  <div class="apple_pagination mb-4">
+    <%= will_paginate @chatroom, :container => false %>
+  </div>
   </div>
 </div>
