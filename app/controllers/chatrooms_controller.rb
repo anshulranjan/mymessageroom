@@ -47,7 +47,7 @@ class ChatroomsController < ApplicationController
     def destroy
         @chatroom = Chatroom.find(params[:id])
         @chatroom.destroy
-        flash[:notice] = "Chatroom name has been changed successfully"
+        flash[:notice] = "Chatroom has been successfully deleted"
         redirect_to root_path
     end
       

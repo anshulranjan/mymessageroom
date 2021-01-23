@@ -12,8 +12,13 @@
 	
 
 	<br>
-  <h1 class="text-center mt-4">All ChatRooms</h1>
+  <h1 class="text-center mt-4">ChatRooms</h1>
   <br>
+  <div class="input-group">
+	  <input type="search" class="form-control rounded" placeholder="Search the Chatrooms" aria-label="Search"
+	    aria-describedby="search-addon" />
+	  <button type="button" class="btn btn-outline-primary">search</button>
+  </div>
   <div class="apple_pagination">
     <%= will_paginate @chatroom, :container => false %>
   </div>
