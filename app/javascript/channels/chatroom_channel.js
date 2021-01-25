@@ -10,6 +10,13 @@ consumer.subscriptions.create("ChatroomChannel", {
   },
 
   received(data) {
+    function scroll_bottom(){
+      if($('#message-scroll').length >0)
+      {
+          $('#message-scroll').scrollTop($('#message-scroll')[0].scrollHeight);
+      }
+    }
     $('#message-containner').append(data.mod_message)
+    scroll_bottom()
   }
 });
