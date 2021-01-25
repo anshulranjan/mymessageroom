@@ -8,7 +8,8 @@ class MessagesController < ApplicationController
         if @message.save
             ActionCable.server.broadcast "chatroom_channel", mod_message: message_render(@message)
         else
-            redirect_to root_path
+            flash[:alert] = "You cannot send blank message"
+            redirect_to chatroom_path(params[:chatroom_id])
         end
     end
     
