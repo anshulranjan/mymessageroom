@@ -1,0 +1,22 @@
+								<% if message.user == current_user %>
+											<div class="chat-message-right mb-4" id = "message-containner">
+										<div>
+											<div class="text-muted small text-nowrap mt-2"><%= time_ago_in_words(message.created_at) %></div>
+										</div>
+										<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
+											<div class="font-weight-bold mb-1">You</div>
+											<%= message.body %>
+										</div>
+									</div>
+								<% else %>
+								
+									<div class="chat-message-left pb-4" id = "message-containner">
+									<div>
+										<div class="text-muted small text-nowrap mt-2"><%= time_ago_in_words(message.created_at) %></div>
+									</div>
+									<div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
+										<div class="font-weight-bold mb-1"><%= message.user.username %></div>
+										<%= message.body %>
+									</div>
+									</div>
+								<% end %>
