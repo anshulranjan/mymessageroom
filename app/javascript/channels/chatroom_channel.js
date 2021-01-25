@@ -1,5 +1,13 @@
 import consumer from "./consumer"
-
+function scroll_bottom(){
+  if($('#message-scroll').length >0)
+  {
+    $('#message-scroll').scrollTop($('#message-scroll')[0].scrollHeight);
+  }
+}
+function submit_message() {
+  document.getElementById('message-body').value='';
+};
 consumer.subscriptions.create("ChatroomChannel", {
   connected() {
     // Called when the subscription is ready for use on the server
@@ -10,13 +18,9 @@ consumer.subscriptions.create("ChatroomChannel", {
   },
 
   received(data) {
-    function scroll_bottom(){
-      if($('#message-scroll').length >0)
-      {
-          $('#message-scroll').scrollTop($('#message-scroll')[0].scrollHeight);
-      }
-    }
+    
     $('#message-containner').append(data.mod_message)
-    scroll_bottom()
+    scroll_bottom();
+    submit_message();
   }
 });

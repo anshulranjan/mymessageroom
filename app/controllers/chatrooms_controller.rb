@@ -8,7 +8,7 @@ class ChatroomsController < ApplicationController
       @chatroom = Chatroom.find(params[:id])
       @message = Message.new
       @message.chatroom_id = @chatroom.id
-      @messages = @chatroom.messages.all
+      @messages = @chatroom.messages.custom_display
     end
     
     def index
