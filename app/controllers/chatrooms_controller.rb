@@ -1,6 +1,6 @@
 class ChatroomsController < ApplicationController
     
-    before_action :require_user, only: [:new, :edit, :update, :destroy]
+    before_action :require_user, only: [:new, :edit, :update, :destroy, :show]
     before_action :require_same_user, only: [:edit, :update, :destroy]
 
     
@@ -13,6 +13,7 @@ class ChatroomsController < ApplicationController
     
     def index
         @chatroom = Chatroom.order("created_at DESC").paginate(page: params[:page], per_page: 15)
+        @users = User.all
     end
   
     def new

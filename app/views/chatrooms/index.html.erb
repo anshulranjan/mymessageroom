@@ -12,25 +12,34 @@
 	
 
 	<br>
-	
-  <h1 class="text-center mt-4">ChatRooms</h1>
   <br>
   <div class="row">
   	
   	<div class="col-md-4">
-	  	<div class="card" style="width: 18rem;">
+	  	<div class="card" style="min-height: 100vh;">
 		  <div class="card-body">
-		    <h5 class="card-title">Card title</h5>
-	    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-	    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-	    <a href="#" class="card-link">Card link</a>
-	    <a href="#" class="card-link">Another link</a>
+		    <h2 class="card-title">Online Users</h2>
+		    <% @users.each do |user| %>
+		    	<% if user.status? %>
+	    		<p class="card-text"><div class="d-flex align-items-start">
+	    	
+				<img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle mr-1" alt="William Harris" width="40" height="40">
+				<div class="flex-grow-1 ml-3">
+					<h6><%= user.username %> </h6>
+					<br>
+				</div>
+				</div>
+				</p>
+				<% end %>
+			<% end %>
 	  </div>
 		</div>
   </div>
   
   <!-- side content -->
    <div class="col-lg-8">
+   	<h1 class="text-center">Chatrooms</h1>
+   	<br>
   <div class="input-group">
 	  <input type="search" class="form-control rounded" placeholder="Search the Chatrooms" aria-label="Search"
 	    aria-describedby="search-addon" />

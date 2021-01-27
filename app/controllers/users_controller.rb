@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_action :require_user, only: [:edit, :update, :destroy]
+  before_action :require_user, only: [:edit, :update, :destroy, :show]
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def show
@@ -13,7 +13,14 @@ class UsersController < ApplicationController
   end
   
   def new
-    @user = User.new
+    if logged_in?
+        flash[:alert] = "Please Logout to SignUp"
+        redirect_to current_user
+    
+    else
+      @user = User.new
+    end
+    
   end
 
   def edit
@@ -62,7 +69,8 @@ class UsersController < ApplicationController
   def require_same_user
     if current_user != User.find(params[:id])
       flash[:alert] = "You can only edit or delete your own user"
-      redirect_to User.find(params[:id])
+      redirect_to current_user
+      
     end
   end
   
