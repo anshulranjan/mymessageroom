@@ -21,14 +21,23 @@
 		    <h2 class="card-title">Online Users</h2>
 		    <% @users.each do |user| %>
 		    	<% if user.status? %>
+		    	
 	    		<p class="card-text"><div class="d-flex align-items-start">
-	    	
-				<img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle mr-1" alt="William Harris" width="40" height="40">
-				<div class="flex-grow-1 ml-3">
+	    		<% if user.gender =="Male" %>
+					<img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle mr-1" alt="William Harris" width="40" height="40">
+					<div class="flex-grow-1 ml-3">
 					<h6><%= user.username %> </h6>
 					<br>
-				</div>
-				</div>
+					</div>
+					</div>
+				<% else %>
+					<img src="https://bootdey.com/img/Content/avatar/avatar3.png" class="rounded-circle mr-1" alt="William Harris" width="40" height="40">
+					<div class="flex-grow-1 ml-3">
+					<h6><%= user.username %> </h6>
+					<br>
+					</div>
+					</div>
+				<% end %>
 				</p>
 				<% end %>
 			<% end %>
