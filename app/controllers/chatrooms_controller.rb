@@ -52,6 +52,15 @@ class ChatroomsController < ApplicationController
         flash[:notice] = "Chatroom has been successfully deleted"
         redirect_to root_path
     end
+    
+    def search
+        @users = User.all
+        if params[:search].blank?  
+            redirect_to(root_path, alert: "Please type something is searchbox!") and return  
+        else
+            @chatroom = Chatroom.where("lower(title) LIKE :title1", {:title1 => "%#{params[:search].downcase}%"}).order("created_at DESC").paginate(page: params[:page], per_page: 15)
+        end
+    end
       
       
       

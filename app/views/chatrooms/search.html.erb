@@ -48,7 +48,7 @@
    <div class="col-lg-8">
    	<h1 class="text-center">Chatrooms</h1>
    	<br>
-  	 <%= form_tag(search_page_path, :method => "get",class: 'input-group') do %>
+  <%= form_tag(search_page_path, :method => "get",class: 'input-group') do %>
   	  <%= search_field_tag :search, params[:search], placeholder: "Search the Chatrooms", class: "form-control rounded" %>
   	   <%= button_tag "Search", :class => 'btn btn-outline-primary', :name => nil , type: :submit %>
   	<% end %>
