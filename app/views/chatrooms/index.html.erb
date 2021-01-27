@@ -5,9 +5,8 @@
 		    <% if !logged_in? %>
 		    	<div class="justify-content-center"><%= link_to "Sign Up", signup_path, class: "btn btn-primary btn-lg mt-2" %></div>
 		    <% else %>
-				<div class="justify-content-center"><%= link_to "View Profile", user_path(current_user), class: "btn btn-primary btn-lg mt-2" %></div>		    
+		    	<div class="justify-content-end"><%= link_to "View Profile", user_path(current_user), class: "btn btn-primary btn-lg mt-2" %></div>
 		    <% end %>
-		    <div class="justify-content-end"><%= link_to "Random Chats", new_chatroom_path, class: "btn btn-primary btn-lg mt-2" %></div>
 		</div>
 	
 

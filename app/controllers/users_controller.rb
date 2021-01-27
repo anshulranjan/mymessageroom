@@ -45,6 +45,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Welcome to the MessageMe #{@user.username}, you have successfully signed up"
+      @user.toggle!(:status)
       redirect_to user_path(@user)
     else
       render 'new'
@@ -53,6 +54,7 @@ class UsersController < ApplicationController
   
   def destroy
     @user = User.find(params[:id])
+    @user.toggle!(:status)
     @user.destroy
     session[:user_id] = nil if @user == current_user
     flash[:notice] = "Account and all associated chatrooms successfully deleted"

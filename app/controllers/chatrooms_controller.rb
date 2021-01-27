@@ -6,6 +6,7 @@ class ChatroomsController < ApplicationController
     
     def show
       @chatroom = Chatroom.find(params[:id])
+      @chatusers = @chatroom.messages.distinct(:user_id)
       @message = Message.new
       @message.chatroom_id = @chatroom.id
       @messages = @chatroom.messages.custom_display
