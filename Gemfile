@@ -57,6 +57,7 @@ group :test do
   
 group :production do
   gem 'pg'
+  gem 'redis'
 end
 end
 
