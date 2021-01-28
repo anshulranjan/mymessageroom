@@ -1,14 +1,42 @@
 								<% if message.user == current_user %>
+										<% if defined?(sender) %>
+											<% if sender %>
+											
+												<div class="chat-message-right mb-4">
+												<div>
+												<div class="text-muted small text-nowrap mt-2"><%= message.created_at.strftime("%I:%M%p") %></div>
+												</div>
+												<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
+												<div class="font-weight-bold mb-1">You</div>
+												<%= message.body %>
+												</div>
+												</div>
+												<br>
+											<% else %>
+												<div class="chat-message-left pb-4" id = "message-containner">
+												<div>
+												<div class="text-muted small text-nowrap mt-2"><%= message.created_at.strftime("%I:%M%p") %></div>
+												</div>
+												<div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
+												<div class="font-weight-bold mb-1">
+												<%= message.user.username if !message.user.nil?%></div>
+												<%= message.body %>
+												</div>
+												</div>
+												<br>
+											<% end %>
+										<% else %>
 											<div class="chat-message-right mb-4">
-										<div>
-											<div class="text-muted small text-nowrap mt-2"><%= message.created_at.strftime("%I:%M%p") %></div>
-										</div>
-										<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
-											<div class="font-weight-bold mb-1">You</div>
-											<%= message.body %>
-										</div>
-									</div>
-									<br>
+												<div>
+												<div class="text-muted small text-nowrap mt-2"><%= message.created_at.strftime("%I:%M%p") %></div>
+												</div>
+												<div class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
+												<div class="font-weight-bold mb-1">You</div>
+												<%= message.body %>
+												</div>
+												</div>
+												<br>
+										<% end %>
 								<% else %>
 								
 									<div class="chat-message-left pb-4" id = "message-containner">

@@ -18,8 +18,11 @@
 	  	<div class="card" style="min-height: 100vh;">
 		  <div class="card-body">
 		    <h2 class="card-title">Online Users</h2>
+		    <% count = 0 %>
 		    <% @users.each do |user| %>
 		    	<% if user.status? %>
+		    	<% count = count +1 %>
+		    	<% break if count>20 %>
 		    	
 	    		<p class="card-text"><div class="d-flex align-items-start">
 	    		<% if user.gender =="Male" %>
