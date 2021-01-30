@@ -25,6 +25,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'tzinfo'
 gem 'tzinfo-data'
 gem 'will_paginate', '~> 3.1.0'
+gem 'auto-session-timeout'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

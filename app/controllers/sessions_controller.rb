@@ -12,7 +12,9 @@ class SessionsController < ApplicationController
         user = User.find_by(username: params[:session][:username].downcase)
         if user && user.authenticate(params[:session][:password])
             session[:user_id] = user.id
-            user.toggle!(:status)
+            if(user.status == false)
+                user.toggle!(:status)
+            end
             flash[:notice] = "Logged in successfully"
             redirect_to user
         else
@@ -22,7 +24,9 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        current_user.toggle!(:status)
+        if(current_user.status == true)
+            current_user.toggle!(:status)
+        end
         session[:user_id] = nil
         flash[:notice] = "Logged out"
         redirect_to root_path
