@@ -1,3 +1,5 @@
+<div id="room-id" data-room-id="<%= @chatroom.try(:id) %>"></div>
+<div id="user-id" data-user-id="<%= current_user.id %>"></div>
 <main class="content">
     <div class="container p-0">
 
@@ -66,8 +68,13 @@
 					</div>
 
 					<div class="position-relative" id = "message-scroll">
-						<div class="chat-messages p-4" id = "message-containner">
-							<%= render @messages %>
+						<div class="chat-messages p-4">
+						    <div id = "message-containner">
+								<% @messages.each do |message| %>
+								<%= render 'messages/message', message: message %>
+								<% end %>
+							</div>
+							
 						</div>
 					</div>
 

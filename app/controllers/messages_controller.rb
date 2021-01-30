@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
         @message.user_id = current_user.id
         @message.chatroom_id = params[:chatroom_id]
         if @message.save
-            ActionCable.server.broadcast "chatroom_channel", mod_message: message_render(@message)
+            SendMessageJob.perform_later(@message)
         else
             flash[:alert] = "You cannot send blank message"
             redirect_to chatroom_path(params[:chatroom_id])
@@ -22,5 +22,6 @@ class MessagesController < ApplicationController
     def message_render(message)
         render(partial: 'message', locals:{message: message , sender: true})
     end
+    
     
 end

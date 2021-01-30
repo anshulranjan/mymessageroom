@@ -9,7 +9,7 @@ class ChatroomsController < ApplicationController
       @chatusers = @chatroom.messages.distinct.pluck(:user_id)
       @message = Message.new
       @message.chatroom_id = @chatroom.id
-      @messages = @chatroom.messages.custom_display
+      @messages = @chatroom.messages
     end
     
     def index
