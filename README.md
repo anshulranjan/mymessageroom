@@ -6,9 +6,9 @@ The website has been developed using Rails (Version 6.1.1) framework.
 
 The technologies used are:
 
-Ruby 2.7.2p137 (for backend)
-Bootstrap (for frontend)
-Sqlite (for database)
+Ruby 2.7.2p137 (for backend),
+Bootstrap (for frontend),
+Sqlite (for database),
 Heroku (for deployment)
 
 Click to get the detials of the gems used:
@@ -18,3 +18,10 @@ To preview the app live click:
 https://messageme-anshul.herokuapp.com/
 
 
+Features of the app:
+1. Login/Signup
+2. One to many relationship between users and chatrooms
+3. Check the online users.
+4. One to many relationship between users and messages and also between chatroom and messages.
+5. CRUD Functionalities for all the database tables.
+6. Admin funtionality limited to some user.
