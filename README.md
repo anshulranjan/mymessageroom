@@ -11,10 +11,10 @@ Bootstrap (for frontend)
 Sqlite (for database)
 Heroku (for deployment)
 
-Click below to get the detials of the gems used:
+Click to get the detials of the gems used:
 https://github.com/anshulranjan/mymessageroom/blob/master/Gemfile 
 
-To preview the app live click below:
+To preview the app live click:
 https://messageme-anshul.herokuapp.com/
 
 
